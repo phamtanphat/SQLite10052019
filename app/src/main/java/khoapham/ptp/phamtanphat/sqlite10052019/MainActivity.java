@@ -20,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
 //                    +Gia
 //                    +Dia chi
         //Sử dụng ngôn ngữ truy vấn sql để thao tác với database
-        String createTable = "CREATE TABLE IF NOT EXISTS Monan (Id)";
+        String createTable = "CREATE TABLE IF NOT EXISTS Monan (Id INTEGER PRIMARY KEY AUTOINCREMENT , Ten VARCHAR ,Gia INTEGER ,Diachi VARCHAR)";
     }
 }
