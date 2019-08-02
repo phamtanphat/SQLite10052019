@@ -35,9 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //            int gia = cursor.getInt(2);
 //            String diachi = cursor.getString(3);
 //        }
-        Monan.Builder builder = new Monan.Builder();
-        builder.setTen("Mon an 1");
-        Log.d("BBB",builder.getTen());
+
 
     }
 }
