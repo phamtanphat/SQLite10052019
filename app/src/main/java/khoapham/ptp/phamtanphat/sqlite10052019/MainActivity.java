@@ -2,7 +2,9 @@ package khoapham.ptp.phamtanphat.sqlite10052019;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
 //        sqLite.onQuery(createTable);
 //        String insertData = "INSERT INTO Monan VALUES(null,'Cơm sườn',25000,'Quận 10')";
 //        sqLite.onQuery(insertData);
+
+        String selectdatabase = "SELECT * FROM Monan";
+        Cursor cursor = sqLite.getData(selectdatabase);
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String ten = cursor.getString(1);
+            int gia = cursor.getInt(2);
+            String diachi = cursor.getString(3);
+        }
 
     }
 }
