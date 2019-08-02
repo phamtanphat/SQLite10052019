@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 //        sqLite.onQuery(createTable);
 //        String insertData = "INSERT INTO Monan VALUES(null,'Cơm sườn',25000,'Quận 10')";
 //        sqLite.onQuery(insertData);
-
         String selectdatabase = "SELECT * FROM Monan";
         Cursor cursor = SingletonDatabase.getInstance(this).getData(selectdatabase);
         while (cursor.moveToNext()){
@@ -44,7 +43,5 @@ public class MainActivity extends AppCompatActivity {
             monanArrayList.add(new Monan(id,ten,gia,diachi));
             monanAdapter.notifyDataSetChanged();
         }
-
-
     }
 }
