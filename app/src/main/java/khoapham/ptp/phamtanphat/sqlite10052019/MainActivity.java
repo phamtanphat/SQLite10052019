@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    SQLite sqLite;
     ArrayList<Monan> monanArrayList;
     MonanAdapter monanAdapter;
     RecyclerView recyclerView;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerviewMonan);
         //Mỗi database sẽ có 1 file riêng
-        sqLite = new SQLite(this,"Quanlymonan.sql",null , 1);
         monanArrayList = new ArrayList<>();
         monanAdapter  = new MonanAdapter(monanArrayList,MainActivity.this);
         recyclerView.setAdapter(monanAdapter);
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //        sqLite.onQuery(insertData);
 
         String selectdatabase = "SELECT * FROM Monan";
-        Cursor cursor = sqLite.getData(selectdatabase);
+        Cursor cursor = SingletonDatabase.getInstance(this).getData(selectdatabase);
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
             String ten = cursor.getString(1);

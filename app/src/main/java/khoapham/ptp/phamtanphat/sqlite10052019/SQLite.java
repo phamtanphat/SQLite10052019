@@ -13,6 +13,7 @@ public class SQLite extends SQLiteOpenHelper {
 
     public SQLite(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+
     }
 
     //Cau lệnh truy vấn không trả về kết quả : thêm xóa sửa trong bảng
