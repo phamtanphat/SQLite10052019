@@ -27,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
 //        String insertData = "INSERT INTO Monan VALUES(null,'Cơm sườn',25000,'Quận 10')";
 //        sqLite.onQuery(insertData);
 
-        String selectdatabase = "SELECT * FROM Monan";
-        Cursor cursor = sqLite.getData(selectdatabase);
-        while (cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String ten = cursor.getString(1);
-            int gia = cursor.getInt(2);
-            String diachi = cursor.getString(3);
-        }
+//        String selectdatabase = "SELECT * FROM Monan";
+//        Cursor cursor = sqLite.getData(selectdatabase);
+//        while (cursor.moveToNext()){
+//            int id = cursor.getInt(0);
+//            String ten = cursor.getString(1);
+//            int gia = cursor.getInt(2);
+//            String diachi = cursor.getString(3);
+//        }
+        Monan.Builder builder = new Monan.Builder();
+        builder.setTen("Mon an 1");
+        Log.d("BBB",builder.getTen());
 
     }
 }
