@@ -37,16 +37,13 @@ public class MainActivity extends AppCompatActivity {
 //        sqLite.onQuery(createTable);
 //        String insertData = "INSERT INTO Monan VALUES(null,'Cơm sườn',25000,'Quận 10')";
 //        sqLite.onQuery(insertData);
-        String selectdatabase = "SELECT * FROM Monan";
-        Cursor cursor = SingletonDatabase.getInstance(this).getData(selectdatabase);
-        while (cursor.moveToNext()){
-            int id = cursor.getInt(0);
-            String ten = cursor.getString(1);
-            int gia = cursor.getInt(2);
-            String diachi = cursor.getString(3);
-            monanArrayList.add(new Monan(id,ten,gia,diachi));
-            monanAdapter.notifyDataSetChanged();
-        }
+        upDateDataToUi();
+    }
+
+    @Override
+    protected void onRestart() {
+        upDateDataToUi();
+        super.onRestart();
     }
 
     @Override
@@ -54,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_them,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -71,5 +67,18 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+    private void upDateDataToUi(){
+        monanArrayList.clear();
+        String selectdatabase = "SELECT * FROM Monan";
+        Cursor cursor = SingletonDatabase.getInstance(this).getData(selectdatabase);
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String ten = cursor.getString(1);
+            int gia = cursor.getInt(2);
+            String diachi = cursor.getString(3);
+            monanArrayList.add(new Monan(id,ten,gia,diachi));
+            monanAdapter.notifyDataSetChanged();
+        }
     }
 }

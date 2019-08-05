@@ -42,8 +42,15 @@ public class ThemActivity extends AppCompatActivity {
                 String diachi = edtDiachi.getText().toString();
 
                 if (!TextUtils.isEmpty(ten) && !TextUtils.isEmpty(gia) && !TextUtils.isEmpty(diachi)){
-                    String insert = "INSERT INTO Monan VALUES(null , '"+ten+"' , "+Integer.parseInt(gia)+" , '"+diachi+"')";
-                    SingletonDatabase.getInstance(ThemActivity.this).onQuery(insert);
+                    try{
+                        String insert = "INSERT INTO Monan VALUES(null , '"+ten+"' , "+Integer.parseInt(gia)+" , '"+diachi+"')";
+                        SingletonDatabase.getInstance(ThemActivity.this).onQuery(insert);
+                        Toast.makeText(ThemActivity.this, "Them thanh cong", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }catch (Exception e){
+                        Toast.makeText(ThemActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    }
+
                 }else {
                     Toast.makeText(ThemActivity.this, "Truyen thieu thong tin", Toast.LENGTH_SHORT).show();
                 }
