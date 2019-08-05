@@ -3,9 +3,13 @@ package khoapham.ptp.phamtanphat.sqlite10052019;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -43,5 +47,28 @@ public class MainActivity extends AppCompatActivity {
             monanArrayList.add(new Monan(id,ten,gia,diachi));
             monanAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_them,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item_them :
+                Intent intent = new Intent(MainActivity.this,ThemActivity.class);
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    ActivityOptions options =
+                            ActivityOptions.makeCustomAnimation(this, android.R.anim.fade_in, android.R.anim.fade_out);
+                    startActivity(intent,options.toBundle());
+                }
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }
