@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     startActivity(intent);
                 }
-
                 break;
         }
         return super.onOptionsItemSelected(item);
