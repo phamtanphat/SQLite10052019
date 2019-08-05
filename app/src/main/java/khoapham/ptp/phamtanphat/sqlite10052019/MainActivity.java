@@ -64,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     ActivityOptions options =
                             ActivityOptions.makeCustomAnimation(this, android.R.anim.fade_in, android.R.anim.fade_out);
                     startActivity(intent,options.toBundle());
+                }else{
+                    startActivity(intent);
                 }
-                startActivity(intent);
+
                 break;
         }
         return super.onOptionsItemSelected(item);
